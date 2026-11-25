@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{margin:0}</style>
+<title>Martín Guillén</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Martín Guillén. Account Delivery Lead at DXC Technology, associate professor at ESADE, based in Barcelona.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: a delivery-plan look. The hero pairs a thesis with an "account sheet",
+   and the career is drawn as a Gantt chart, the way a programme director would plan it. */
+:root {
+  --bg: #0A0A0C;
+  --surface: #131316;
+  --ink: #E9E9EC;
+  --muted: #8E8E97;
+  --line: #26262B;
+  --accent: #B9BBBF;
+  --accent-ink: #0A0A0C;
+  --teal: #6B7C95;
+  color-scheme: dark;
+  --f-display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --f-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+:root[data-theme="light"] {
+  --bg: #E8E8EA; --surface: #F4F4F5; --ink: #0F0F12; --muted: #5A5A64;
+  --line: #C9C9CF; --accent: #4B4E54; --accent-ink: #FFFFFF; --teal: #4A5B73;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap {
+  max-width: 1120px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+section { padding-block: clamp(3rem, 7vw, 5.5rem); border-top: 1px solid var(--line); }
+.eyebrow {
+  font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted); margin: 0 0 1rem;
+}
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.02; letter-spacing: 0.03em; text-transform: uppercase; font-weight: 600; }
+h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); max-width: 22ch; }
+p { margin: 0; }
+.lede { max-width: 62ch; color: var(--muted); font-size: 1.0625rem; }
+
+/* header */
+header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; flex-wrap: wrap; }
+.mark { font-family: var(--f-display); font-weight: 600; font-size: 1.2rem; text-decoration: none; letter-spacing: 0.18em; text-transform: uppercase; }
+nav { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; font-size: 0.9rem; }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--ink); }
+.toggle {
+  font: inherit; font-family: var(--f-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer;
+}
+.toggle:hover { color: var(--ink); border-color: var(--muted); }
+
+/* hero */
+.hero { border-top: 0; padding-top: clamp(2rem, 5vw, 4rem); background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 50%, transparent) 0%, color-mix(in srgb, var(--bg) 80%, transparent) 70%, var(--bg) 100%), url("images/hangar.jpg") center 35% / cover no-repeat, var(--bg); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: end; }
+h1 { font-size: clamp(3.1rem, 8vw, 6.4rem); font-weight: 700; letter-spacing: 0.01em; line-height: 0.95; }
+h1 em { font-style: normal; color: var(--accent); }
+.hero .lede { margin-top: 1.5rem; font-size: 1.15rem; color: var(--ink); max-width: 52ch; }
+.cta { display: flex; gap: 0.75rem; margin-top: 2rem; flex-wrap: wrap; }
+.btn {
+  display: inline-block; font-weight: 600; font-size: 0.95rem; text-decoration: none;
+  padding: 0.75rem 1.25rem; border-radius: 0; border: 1px solid var(--ink);
+}
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost:hover { background: var(--surface); }
+
+.sheet { background: var(--surface); border: 1px solid var(--line); border-radius: 0; }
+.sheet-head { display: flex; justify-content: space-between; gap: 1rem; padding: 0.75rem 1.1rem; border-bottom: 1px solid var(--line);
+  font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.sheet dl { margin: 0; }
+.row { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1rem; padding: 0.8rem 1.1rem; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+.row:last-child { border-bottom: 0; }
+.row dt { font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 0.2rem; }
+.row dd { margin: 0; font-weight: 500; }
+.row dd small { display: block; font-weight: 400; color: var(--muted); font-size: 0.85rem; }
+
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; margin-top: clamp(2.5rem, 6vw, 4.5rem); padding-top: 1.75rem; border-top: 1px solid var(--line); }
+.fact b { display: block; font-family: var(--f-display); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 600; letter-spacing: 0.01em; line-height: 1; font-variant-numeric: tabular-nums; }
+.fact span { display: block; margin-top: 0.4rem; font-size: 0.9rem; color: var(--muted); }
+
+/* about */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: clamp(2rem, 5vw, 4.5rem); }
+.about .copy { display: grid; gap: 1.1rem; align-content: start; }
+.about .copy p { max-width: 62ch; }
+.portrait { margin: 2rem 0 0; max-width: 360px; }
+.portrait img { display: block; width: 100%; height: auto; border: 1px solid var(--line); filter: contrast(1.05) brightness(0.92); }
+
+/* cinematic band */
+.band { position: relative; isolation: isolate; overflow: hidden; padding-block: clamp(5rem, 14vw, 10rem); }
+.band::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(270deg, color-mix(in srgb, var(--bg) 88%, transparent) 0%, color-mix(in srgb, var(--bg) 55%, transparent) 55%, color-mix(in srgb, var(--bg) 25%, transparent) 100%), url("images/batcar.jpg") center / cover no-repeat, var(--bg); }
+.band .wrap { display: flex; justify-content: flex-end; }
+.band p { font-family: var(--f-display); text-transform: uppercase; font-weight: 600; letter-spacing: 0.02em; font-size: clamp(2.2rem, 6vw, 4.6rem); line-height: 0.98; max-width: 14ch; text-align: right; text-wrap: balance; }
+.band p em { font-style: normal; color: var(--accent); }
+
+/* capabilities */
+.caps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin-top: 2.5rem; border-top: 1px solid var(--line); }
+.cap { padding: 1.75rem 2rem 1.75rem 0; border-bottom: 1px solid var(--line); }
+.cap:nth-child(even) { padding-left: 2rem; padding-right: 0; border-left: 1px solid var(--line); }
+.cap h3 { font-size: 1.6rem; margin-bottom: 0.6rem; }
+.cap p { color: var(--muted); max-width: 46ch; }
+
+/* gantt */
+.gantt { margin-top: 2.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: 0; padding: 1.25rem 1.25rem 0.75rem; }
+.axis, .lane { display: grid; grid-template-columns: 12.5rem minmax(0, 1fr); gap: 1rem; align-items: center; }
+.axis { padding-bottom: 0.6rem; border-bottom: 1px solid var(--line); }
+.axis .ticks { position: relative; height: 1rem; font-family: var(--f-mono); font-size: 0.7rem; color: var(--muted); }
+.axis .ticks span { position: absolute; top: 0; transform: translateX(-1px); padding-left: 4px; }
+.lane { padding-block: 0.65rem; border-bottom: 1px dashed var(--line); }
+.lane:last-of-type { border-bottom: 0; }
+.who b { display: block; font-weight: 600; font-size: 0.92rem; line-height: 1.3; }
+.who span { display: block; font-family: var(--f-mono); font-size: 0.7rem; color: var(--muted); margin-top: 0.15rem; }
+.track { position: relative; height: 1.5rem; background: repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 18.5185%); }
+.bar { position: absolute; top: 3px; bottom: 3px; background: var(--accent); border-radius: 2px; }
+.bar.alt { opacity: 0.55; }
+.bar.edu { background: var(--teal); }
+.legend { display: flex; gap: 1.25rem; flex-wrap: wrap; padding: 0.9rem 0 0.4rem; margin-top: 0.4rem; border-top: 1px solid var(--line); font-size: 0.8rem; color: var(--muted); }
+.legend i { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 2px; margin-right: 0.45rem; vertical-align: -1px; background: var(--accent); }
+.legend i.t { background: var(--teal); }
+.legend i.a { opacity: 0.55; }
+
+.roles { margin-top: 3rem; border-top: 1px solid var(--line); }
+.role { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: 1.5rem; padding-block: 1.75rem; border-bottom: 1px solid var(--line); }
+.role .yrs { font-family: var(--f-mono); font-size: 0.8rem; color: var(--muted); padding-top: 0.35rem; font-variant-numeric: tabular-nums; }
+.role h3 { font-size: 1.6rem; }
+.role .org { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-top: 0.15rem; }
+.role .org.t { color: var(--teal); }
+.role .body { margin-top: 0.8rem; display: grid; gap: 0.6rem; max-width: 66ch; }
+.role .body p { color: var(--muted); }
+.role .body p b { color: var(--ink); font-weight: 600; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+.tags span { font-family: var(--f-mono); font-size: 0.72rem; border: 1px solid var(--line); border-radius: 999px; padding: 0.2rem 0.65rem; color: var(--muted); }
+
+/* credentials */
+.cred-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; margin-top: 2.5rem; }
+.cred h3 { font-size: 1.2rem; letter-spacing: 0.08em; padding-bottom: 0.7rem; border-bottom: 2px solid var(--ink); }
+.cred ul { list-style: none; margin: 0; padding: 0; }
+.cred li { display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); gap: 0.75rem; padding-block: 0.7rem; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+.cred li time { font-family: var(--f-mono); font-size: 0.75rem; color: var(--muted); padding-top: 0.25rem; font-variant-numeric: tabular-nums; }
+.cred li small { display: block; color: var(--muted); font-size: 0.85rem; }
+.cred li a { color: var(--accent); }
+
+/* beyond */
+.beyond { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 5vw, 4.5rem); margin-top: 2.5rem; }
+.beyond h3 { font-size: 1.2rem; letter-spacing: 0.08em; margin-bottom: 1rem; }
+.langs { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.langs li { display: grid; grid-template-columns: 7rem minmax(0, 1fr) ; gap: 1rem; align-items: center; padding-block: 0.6rem; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
+.dots { display: flex; gap: 4px; }
+.dots i { width: 0.7rem; height: 0.7rem; border-radius: 50%; border: 1.5px solid var(--accent); }
+.dots i.on { background: var(--accent); }
+.langs small { font-family: var(--f-mono); font-size: 0.7rem; color: var(--muted); margin-left: 0.6rem; }
+.iron { background: var(--surface); border: 1px solid var(--line); border-radius: 0; padding: 1.5rem; }
+.iron b { font-family: var(--f-display); font-size: 2.6rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; line-height: 1; display: block; }
+.iron p { color: var(--muted); margin-top: 0.4rem; }
+
+/* contact */
+.contact { position: relative; isolation: isolate; overflow: hidden; background: var(--surface); color: var(--ink); border-top: 1px solid var(--line); }
+.contact::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, color-mix(in srgb, var(--bg) 93%, transparent) 0%, color-mix(in srgb, var(--bg) 60%, transparent) 100%), url("images/loft.jpg") center / cover no-repeat, var(--surface); }
+.contact .eyebrow { color: var(--muted); }
+.contact h2 { max-width: 16ch; font-size: clamp(2.8rem, 7vw, 5rem); line-height: 0.95; }
+.contact .lede { color: var(--muted); margin-top: 1.25rem; }
+.mail { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 2rem; }
+.mail code { font-family: var(--f-mono); font-size: clamp(0.95rem, 2.4vw, 1.25rem); overflow-wrap: anywhere; }
+.contact .btn { border-color: var(--ink); color: var(--ink); background: transparent; font-family: inherit; cursor: pointer; }
+.contact .btn:hover { background: var(--bg); }
+.contact .btn.solid { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.contact .links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+footer { padding-block: 1.5rem; background: var(--bg); color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .hero-grid, .about, .beyond, .cred-grid { grid-template-columns: minmax(0, 1fr); }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .caps { grid-template-columns: minmax(0, 1fr); }
+  .cap, .cap:nth-child(even) { padding: 1.5rem 0; border-left: 0; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .axis, .lane { grid-template-columns: minmax(0, 1fr); gap: 0.4rem; }
+  .axis > :first-child { display: none; }
+  .role { grid-template-columns: minmax(0, 1fr); gap: 0.4rem; }
+  .gantt { padding-inline: 1rem; }
+  .row { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; }
+  nav a.hide-sm { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<header>
+  <div class="wrap">
+    <a class="mark" href="#top">Martín Guillén</a>
+    <nav aria-label="Sections">
+      <a class="hide-sm" href="#about">About</a>
+      <a class="hide-sm" href="#work">What I do</a>
+      <a href="#career">Career</a>
+      <a class="hide-sm" href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
+      <button class="toggle" id="theme" type="button" aria-label="Switch colour theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Barcelona · Technology delivery · EMEA</p>
+          <h1>Engineer by training. <em>Account leader</em> by practice.</h1>
+          <p class="lede">I lead the relationship and the delivery behind core software platforms for major European financial institutions, from the engineering team to the boardroom.</p>
+          <div class="cta">
+            <a class="btn primary" href="#contact">Get in touch</a>
+            <a class="btn ghost" href="#career">See the career plan</a>
+          </div>
+        </div>
+        <aside class="sheet" aria-label="Account sheet">
+          <div class="sheet-head"><span>Account sheet</span><span>2026</span></div>
+          <dl>
+            <div class="row"><dt>Role</dt><dd>Account Delivery Lead &amp; Projects Director, EMEA<small>DXC Technology, Insurance Services</small></dd></div>
+            <div class="row"><dt>Teams</dt><dd>40+ experts<small>Distributed across 7 countries</small></dd></div>
+            <div class="row"><dt>Platforms</dt><dd>DXC Graphtalk, Brokasure<small>Core insurtech software</small></dd></div>
+            <div class="row"><dt>Teaching</dt><dd>Associate Professor, ESADE<small>Project Management, Master in International Management</small></dd></div>
+            <div class="row"><dt>Certified</dt><dd>PMP · ITIL Expert · AWS AI Practitioner</dd></div>
+          </dl>
+        </aside>
+      </div>
+
+      <div class="facts">
+        <div class="fact"><b>20+</b><span>years building executive partnerships</span></div>
+        <div class="fact"><b>40+</b><span>professionals led across 7 countries</span></div>
+        <div class="fact"><b>4</b><span>fluent languages, plus Mandarin</span></div>
+        <div class="fact"><b>2</b><span>master's degrees: engineering and cybersecurity</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>Technical enough to challenge the plan. Commercial enough to grow the account.</h2>
+        <figure class="portrait"><img src="images/portrait.jpg" width="720" height="900" alt="Portrait of Martín Guillén"></figure>
+      </div>
+      <div class="copy">
+        <p>I am the primary point of contact for technology delivery and business growth with C-level executives and senior stakeholders at major European corporations. My work is to translate complex technical solutions into business value, and to keep strategic, operational and tactical governance running while the programme moves.</p>
+        <p>I have managed multi-million euro accounts with distributed teams of 40+ professionals across 7 countries, delivering core software platforms and large-scale digital transformation across EMEA. I influence at every level, from technical teams to the board, so that service delivery and revenue growth stay aligned.</p>
+        <p>I also teach. Since 2010 I have co-taught Project Management to the Master in International Management at ESADE Business &amp; Law School.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <p class="eyebrow">What I do</p>
+      <h2>Four things clients rely on me for</h2>
+      <div class="caps">
+        <article class="cap">
+          <h3>Executive partnership</h3>
+          <p>Trusted relationships with C-level executives and senior stakeholders. Proactive engagement and regular performance reviews keep customers satisfied before problems surface.</p>
+        </article>
+        <article class="cap">
+          <h3>Delivery governance</h3>
+          <p>Strategic, operational and tactical oversight of distributed teams of 40+ experts across 7 countries, grounded in PMP and ITIL Expert practice.</p>
+        </article>
+        <article class="cap">
+          <h3>Digital transformation</h3>
+          <p>Selling and overseeing the implementation of core insurtech platforms for top European financial institutions, and of transformation programmes across EMEA.</p>
+        </article>
+        <article class="cap">
+          <h3>Growth through delivery</h3>
+          <p>Spotting where a client's technology investment meets its business objectives, and turning that into new scope, new sectors and upselling in key accounts.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-label="Positioning statement">
+    <div class="wrap"><p>Complex technology, <em>translated</em> into business value.</p></div>
+  </section>
+
+  <section id="career">
+    <div class="wrap">
+      <p class="eyebrow">Career</p>
+      <h2>Twenty-six years, planned like a programme</h2>
+      <p class="lede" style="margin-top:1rem">From Java development at the Olympic Games to leading EMEA delivery at DXC.</p>
+
+      <div class="gantt" role="img" aria-label="Career timeline from 2000 to today: Atos Origin 2000 to 2003, Agilent 2004, Sun Microsystems 2005 to 2009, Oracle 2010, Econocom 2011 to 2020, DXC Technology from 2021 to today, and ESADE from 2010 to today.">
+        <div class="axis">
+          <div></div>
+          <div class="ticks" aria-hidden="true">
+            <span style="left:0%">2000</span>
+            <span style="left:18.5185%">2005</span>
+            <span style="left:37.037%">2010</span>
+            <span style="left:55.5555%">2015</span>
+            <span style="left:74.074%">2020</span>
+            <span style="left:92.5925%">2025</span>
+          </div>
+        </div>
+        <div class="lane"><div class="who"><b>Atos Origin</b><span>Software Developer · 2000–03</span></div><div class="track"><div class="bar" style="left:0%;width:14.8148%"></div></div></div>
+        <div class="lane"><div class="who"><b>Agilent Technologies</b><span>Data Consultant · 2004</span></div><div class="track"><div class="bar" style="left:14.8148%;width:3.7037%"></div></div></div>
+        <div class="lane"><div class="who"><b>Sun Microsystems</b><span>Project Manager · 2005–09</span></div><div class="track"><div class="bar" style="left:18.5185%;width:18.5185%"></div></div></div>
+        <div class="lane"><div class="who"><b>Oracle</b><span>Project Manager · 2010</span></div><div class="track"><div class="bar" style="left:37.037%;width:3.7037%"></div></div></div>
+        <div class="lane"><div class="who"><b>Econocom</b><span>Program Mgr, then Sr Account Exec · 2011–20</span></div><div class="track"><div class="bar alt" style="left:40.7407%;width:14.8148%"></div><div class="bar" style="left:55.5555%;width:22.2222%"></div></div></div>
+        <div class="lane"><div class="who"><b>DXC Technology</b><span>Account Delivery Lead · 2021–now</span></div><div class="track"><div class="bar" style="left:77.7777%;width:22.2222%"></div></div></div>
+        <div class="lane"><div class="who"><b>ESADE</b><span>Associate Professor · 2010–now</span></div><div class="track"><div class="bar edu" style="left:37.037%;width:62.963%"></div></div></div>
+        <div class="legend"><span><i></i>Delivery &amp; account leadership</span><span><i class="a"></i>Delivery &amp; pre-sales programmes</span><span><i class="t"></i>Teaching</span></div>
+      </div>
+
+      <div class="roles">
+        <article class="role">
+          <div class="yrs">2021 – today</div>
+          <div>
+            <h3>Account Delivery Lead &amp; Projects Director, EMEA</h3>
+            <p class="org">DXC Technology · Insurance Services</p>
+            <div class="body">
+              <p>Work with international clients and manage teams of 40+ experts across 7 countries to <b>sell and oversee the implementation of core insurtech software platforms</b> for top European financial institutions.</p>
+            </div>
+            <div class="tags"><span>DXC Graphtalk</span><span>Brokasure</span><span>C-level relationships</span><span>EMEA</span></div>
+          </div>
+        </article>
+        <article class="role">
+          <div class="yrs">2010 – today</div>
+          <div>
+            <h3>Associate Professor (part time)</h3>
+            <p class="org t">ESADE Business &amp; Law School · Business Policy &amp; Strategy</p>
+            <div class="body">
+              <p>Co-teach the <b>Project Management</b> course for the Master in International Management (MIM) programmes.</p>
+            </div>
+          </div>
+        </article>
+        <article class="role">
+          <div class="yrs">2015 – 2020</div>
+          <div>
+            <h3>Senior Account Executive</h3>
+            <p class="org">Econocom · TMF (Technology Management &amp; Financing)</p>
+            <div class="body">
+              <p><b>Mission:</b> develop new business for the TMF division, on a target account worth more than €100M in annual revenue.</p>
+              <p><b>Deals:</b> large Device-as-a-Service (DaaS) deployments across EMEA, and structured finance contracts for large-scale technology investments.</p>
+              <p><b>Result:</b> expanded Econocom's portfolio into new sectors and asset types: industrial equipment, healthcare, robotic surgery and Apple devices.</p>
+            </div>
+          </div>
+        </article>
+        <article class="role">
+          <div class="yrs">2011 – 2014</div>
+          <div>
+            <h3>Program / Contract Manager, Delivery and Pre-Sales</h3>
+            <p class="org">Econocom</p>
+            <div class="body">
+              <p>Managed a portfolio of complex IT and software projects and outsourcing contracts for Econocom's biggest customers, supervising a group of 7 project managers.</p>
+              <p><b>Result:</b> professionalised the projects division and generated upselling opportunities in key accounts.</p>
+            </div>
+          </div>
+        </article>
+        <article class="role">
+          <div class="yrs">2005 – 2010</div>
+          <div>
+            <h3>Project Manager</h3>
+            <p class="org">Sun Microsystems, then Oracle</p>
+            <div class="body">
+              <p>Executed technology projects (hardware, software, services) budgeted above €500K for Sun's customers, including the deployment of e-government services for the city hall of Badalona. The programme changed technologies (ERP, UX, SCP) and data flows, and also internal processes and roles.</p>
+              <p><b>Result:</b> 2006 Sun Microsystems Excellence Award. The same role continued at Oracle in 2010.</p>
+            </div>
+          </div>
+        </article>
+        <article class="role">
+          <div class="yrs">2004</div>
+          <div>
+            <h3>Data Consultant</h3>
+            <p class="org">Agilent Technologies</p>
+          </div>
+        </article>
+        <article class="role">
+          <div class="yrs">2000 – 2003</div>
+          <div>
+            <h3>Software Developer, Major Events division</h3>
+            <p class="org">Atos Origin</p>
+            <div class="body">
+              <p>Built Java/J2EE software to manage all IT operations (information systems, accreditations, intranet) for Olympic and major events, working on projects around the world and across cultures.</p>
+            </div>
+            <div class="tags"><span>2002 · Johannesburg, World Summit on Sustainable Development</span><span>2002 · Korea-Japan FIFA World Cup</span><span>2002 · Salt Lake City Winter Games</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="credentials">
+    <div class="wrap">
+      <p class="eyebrow">Credentials</p>
+      <h2>Engineering foundations, kept current</h2>
+      <div class="cred-grid">
+        <div class="cred">
+          <h3>Education</h3>
+          <ul>
+            <li><time>1993–99</time><span>Industrial Engineering, specialty Automation (5-year degree)<small>ETSEIB, Universitat Politècnica de Catalunya</small><small>Dissertation on respiratory-muscle myographic signals, published at the 22nd IEEE Engineering in Medicine and Biology Society conference. <a href="http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?reload=true&amp;arnumber=897985" target="_blank" rel="noopener">Read the paper</a></small></span></li>
+            <li><time>2003–04</time><span>Master's in Cybersecurity Technology &amp; Management<small>esCERT / UPC</small></span></li>
+          </ul>
+        </div>
+        <div class="cred">
+          <h3>Delivery &amp; service management</h3>
+          <ul>
+            <li><time>2021</time><span>Agile Software Development: Scrum for Developers<small>LinkedIn</small></span></li>
+            <li><time>2009</time><span>ITIL® Expert in IT Service Management<small>The APM Group, OGC accredited, ITIL v3</small></span></li>
+            <li><time>2008</time><span>PMP, Project Management Professional<small>Project Management Institute</small></span></li>
+            <li><time>2008</time><span>ITIL® Manager's Certificate<small>The British Computer Society, ITIL v2</small></span></li>
+          </ul>
+        </div>
+        <div class="cred">
+          <h3>AI &amp; emerging technology</h3>
+          <ul>
+            <li><time>2025</time><span>AWS Certified AI Practitioner<small>Amazon Web Services</small></span></li>
+            <li><time>2024</time><span>Generative AI with Large Language Models<small>DeepLearning.AI</small></span></li>
+            <li><time>2021</time><span>Alteryx Core Designer<small>Udemy</small></span></li>
+            <li><time>2019</time><span>Blockchain Technology; Bitcoin and Cryptocurrencies<small>University of California, Berkeley</small></span></li>
+            <li><time>2018</time><span>Neural Networks and Deep Learning<small>Stanford / DeepLearning.AI</small></span></li>
+          </ul>
+        </div>
+        <div class="cred">
+          <h3>Business &amp; sales</h3>
+          <ul>
+            <li><time>2018</time><span>Private Equity and Venture Capital<small>Università Bocconi</small></span></li>
+            <li><time>2013</time><span>IBM Certified Sales Expert, Power Systems with POWER7<small>IBM</small></span></li>
+            <li><time>2013</time><span>IBM Certified Sales Specialist, POWER7 with AIX and with IBM i<small>IBM, two certificates</small></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beyond">
+    <div class="wrap">
+      <p class="eyebrow">Beyond the account</p>
+      <h2>Languages and long distances</h2>
+      <div class="beyond">
+        <div>
+          <h3>Languages</h3>
+          <ul class="langs">
+            <li><span>Catalan</span><span class="dots" aria-label="Fluent"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></li>
+            <li><span>Spanish</span><span class="dots" aria-label="Fluent"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></li>
+            <li><span>English</span><span class="dots" aria-label="Fluent"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></li>
+            <li><span>French</span><span class="dots" aria-label="Fluent"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></li>
+            <li><span>Mandarin</span><span style="display:flex;align-items:center"><span class="dots" aria-label="Foundational"><i class="on"></i><i></i><i></i><i></i></span><small>12 years of study</small></span></li>
+          </ul>
+        </div>
+        <div class="iron">
+          <h3>Endurance</h3>
+          <b>IRONMAN finisher</b>
+          <p>Lanzarote, 2009. Discipline and resilience, trained the same way as a long programme: steadily, and to the plan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2>Let's talk technology delivery.</h2>
+      <p class="lede">For conversations about insurtech and digital transformation, executive partnerships, or teaching project management.</p>
+      <div class="mail">
+        <code id="email">martin.guillen@gmail.com</code>
+        <button class="btn solid" id="copy" type="button">Copy email</button>
+      </div>
+      <div class="links">
+        <a class="btn" href="mailto:martin.guillen@gmail.com">Write an email</a>
+        <a class="btn" href="https://es.linkedin.com/in/martinguillen" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Martín Guillén</span><span>Barcelona, Spain</span></div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement, btn = document.getElementById("theme");
+  try { var saved = localStorage.getItem("mg-theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  btn.addEventListener("click", function () {
+    var cur = root.getAttribute("data-theme");
+    if (!cur) cur = "dark";
+    var next = cur === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("mg-theme", next); } catch (e) {}
+  });
+  var copy = document.getElementById("copy"), mail = document.getElementById("email");
+  copy.addEventListener("click", function () {
+    var done = function () { copy.textContent = "Copied"; setTimeout(function () { copy.textContent = "Copy email"; }, 1800); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(mail);
+      var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(mail.textContent).then(done, fallback);
+    } else { fallback(); }
+  });
+})();
+</script>
+
+</html>
